@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drip Tray Review</title>
+<style>
+:root { --bg: #fafafa; --fg: #222; --muted: #666; --card: #fff; --line: #ddd; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16181c; --fg: #e6e6e6; --muted: #999; --card: #1f2227; --line: #333; }
+}
+body { margin: 0; padding: 24px 16px; background: var(--bg); color: var(--fg);
+       font: 15px/1.5 system-ui, sans-serif; }
+main { max-width: 1200px; margin: 0 auto; }
+h1 { margin: 0 0 4px; }
+p.lead { margin: 0 0 24px; color: var(--muted); }
+.hero img { width: 100%; }
+.views { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+figure { margin: 0 0 16px; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+         overflow: hidden; }
+figure img { display: block; width: 100%; height: auto; }
+figcaption { padding: 8px 12px; color: var(--muted); }
+figcaption strong { color: var(--fg); margin-right: 4px; }
+.tables { display: grid; gap: 24px; grid-template-columns: 2fr 1fr; }
+@media (max-width: 800px) { .tables { grid-template-columns: 1fr; } }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+ul { padding-left: 20px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Drip Tray</h1>
+<p class="lead">Generated from <code>drip_tray.scad</code>.</p>
+<div class="views">
+<figure><a href="assembly.png"><img src="assembly.png" alt="Assembly"></a><figcaption><strong>Assembly</strong> Tray with the grid inserted, grid top flush with the rim.</figcaption></figure>
+<figure><a href="exploded.png"><img src="exploded.png" alt="Exploded"></a><figcaption><strong>Exploded</strong> Grid lifted out of the tray.</figcaption></figure>
+<figure><a href="section.png"><img src="section.png" alt="Section"></a><figcaption><strong>Section</strong> Corner cut through a leg: wall, clearance, leg fillet, flush top.</figcaption></figure>
+<figure><a href="tray.png"><img src="tray.png" alt="Tray"></a><figcaption><strong>Tray</strong> Outer tray with rounded corners and bottom edges.</figcaption></figure>
+<figure><a href="grid.png"><img src="grid.png" alt="Grid"></a><figcaption><strong>Grid</strong> Insert in assembled orientation; the legs hide under the hex web.</figcaption></figure>
+<figure><a href="grid_print.png"><img src="grid_print.png" alt="Grid, print orientation"></a><figcaption><strong>Grid, print orientation</strong> Plate on the build plate, legs pointing up.</figcaption></figure>
+</div>
+<div class="tables">
+<section>
+<h2>Parameters</h2>
+<div class="scroll"><table>
+<thead><tr><th>Group</th><th>Name</th><th>Value</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Tray</td><td><code>tray_size</code></td><td><code>[220, 320, 10]</code></td><td>outer width, length, height</td></tr>
+<tr><td>Tray</td><td><code>wall</code></td><td><code>2</code></td><td></td></tr>
+<tr><td>Tray</td><td><code>corner_radius</code></td><td><code>5</code></td><td>vertical corners and bottom edges</td></tr>
+<tr><td>Grid</td><td><code>clearance</code></td><td><code>0.5</code></td><td>gap between grid and tray wall, all around</td></tr>
+<tr><td>Grid</td><td><code>grid_thickness</code></td><td><code>4</code></td><td>hex plate, measured down from the top</td></tr>
+<tr><td>Grid</td><td><code>rim_width</code></td><td><code>3</code></td><td>solid outline around the hex pattern</td></tr>
+<tr><td>Grid</td><td><code>hex_radius</code></td><td><code>6</code></td><td>circumradius of one hex hole</td></tr>
+<tr><td>Grid</td><td><code>hex_web</code></td><td><code>1.6</code></td><td>material between neighbouring hex holes</td></tr>
+<tr><td>Grid</td><td><code>leg_spacing</code></td><td><code>40</code></td><td>maximum distance between legs</td></tr>
+<tr><td>Grid</td><td><code>leg_foot</code></td><td><code>2</code></td><td>leg radius where it stands on the tray floor</td></tr>
+<tr><td>Grid</td><td><code>finger_notches</code></td><td><code>true</code></td><td>half-circle notch on each short edge to lift the grid out</td></tr>
+<tr><td>Grid</td><td><code>notch_radius</code></td><td><code>15</code></td><td></td></tr>
+</tbody>
+</table></div>
+</section>
+<section>
+<h2>Derived</h2>
+<ul>
+<li><code>grid_size = [215, 315, 8]</code></li>
+<li><code>leg_height = 4</code></li>
+<li><code>legs = 54</code></li>
+</ul>
+</section>
+</div>
+</main>
+</body>
+</html>
